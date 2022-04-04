@@ -1,5 +1,5 @@
 const passwordHash = require('../secure/hash')
-const { getUserByUsername } = require('../service/user-service/user-managment')
+const { getUserByUsername } = require('../managment/user/user-managment')
 
 module.exports = async (req, res, next) => {
   try {

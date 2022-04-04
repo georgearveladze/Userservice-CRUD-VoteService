@@ -1,9 +1,7 @@
 const jwt = require('jsonwebtoken')
-const { getActiveUser } = require('../../service/user-service/user-managment')
-const { saveUser } = require('../../service/user-service/user-managment')
-const {
-  findUserAndUpdate,
-} = require('../../service/user-service/user-managment')
+const { getActiveUser } = require('../../managment/user/user-managment')
+const { saveUser } = require('../../managment/user/user-managment')
+const { findUserAndUpdate } = require('../../managment/user/user-managment')
 
 const hash = require('../../secure/hash')
 

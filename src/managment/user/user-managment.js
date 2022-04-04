@@ -5,13 +5,11 @@ async function getUserByUsername(username) {
 }
 
 async function getUserById(id) {
-  const user = User.findOne({ id: id })
-  return user
+  return User.findOne({ id: id })
 }
 
 async function getActiveUser(trueOrFalse) {
-  const user = User.find({ deleted: trueOrFalse })
-  return user
+  return User.find({ deleted: trueOrFalse })
 }
 
 async function saveUser(data) {

@@ -20,6 +20,15 @@ const voteAddController = async (req, res) => {
     })
   }
 }
-module.exports = {
-  voteAddController,
+
+const voteSum = async (req, res) => {
+  try {
+    const { votedTo } = req.body.votedTo
+    const vote = await UserVote.find({ votedTo })
+    return vote.reduce((total, curr) => (total += +curr.votes), 0)
+  } catch (err) {
+    return res.status(400).send({ message: err.message })
+  }
 }
+
+module.exports = { voteAddController, voteSum }

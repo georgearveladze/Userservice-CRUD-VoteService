@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 const mongoose_delete = require('mongoose-delete')
 
 const VOTES = {
-  UP: +1,
+  UP: 1,
   DOWN: -1,
 }
 

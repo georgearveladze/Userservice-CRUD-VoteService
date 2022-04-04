@@ -4,6 +4,7 @@ const updateValidation = require('../middleware/ifUnmodifiedSince')
 const autValidation = require('../middleware/validate-user-auth')
 const { validateUserVote } = require('../middleware/vaildate-user-vote.js')
 const loginValidation = require('../middleware/validate-user-login')
+const userservices = require('../service/user-service')
 const {
   getUsers,
   userUpdate,
@@ -13,7 +14,7 @@ const {
 } = require('../controller/user/user-controller')
 const { voteAddController } = require('../controller/vote/vote-controler.js')
 
-router.post('/signUp', userSignUp)
+router.post('/signUp', userservices, userSignUp)
 
 router.post('/signIn', loginValidation, userSingIn)
 
