@@ -8,8 +8,8 @@ async function getUserById(id) {
   return User.findOne({ id: id })
 }
 
-async function getActiveUser(trueOrFalse) {
-  return User.find({ deleted: trueOrFalse })
+async function getActiveUser(limit, skip) {
+  return User.find({ isDeleted: false }).skip().limit()
 }
 
 async function saveUser(data) {

@@ -1,4 +1,4 @@
-const passwordHash = require('../secure/hash')
+const passwordHash = require('../service/hash-service')
 const { getUserByUsername } = require('../managment/user/user-managment')
 
 module.exports = async (req, res, next) => {

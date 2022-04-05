@@ -3,7 +3,7 @@ const { getActiveUser } = require('../../managment/user/user-managment')
 const { saveUser } = require('../../managment/user/user-managment')
 const { findUserAndUpdate } = require('../../managment/user/user-managment')
 
-const hash = require('../../secure/hash')
+const hash = require('../../service/hash-service')
 
 const userDelete = async (req, res) => {
   try {
@@ -69,12 +69,13 @@ const getUsers = async (req, res) => {
     const page = parseInt(req.query.skip)
     const limit = parseInt(req.query.limit)
     const skipIndex = (page - 1) * limit
-    const list = await getActiveUser(false).limit(limit).skip(skipIndex).exec()
+    const list = await getActiveUser(+limit, skipIndex)
     return res.status(200).json({
       message: "User's list",
       data: list,
     })
   } catch (e) {
+    console.log(e)
     return res.status(400).send({ message: 'Error Occured' })
   }
 }
